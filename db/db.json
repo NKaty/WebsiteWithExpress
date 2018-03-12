@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "admin@admin",
+      "password": "sha1$8f53e4db$1$55f19543380d2775c86c51f6cd1a7e98e3cbc31d"
+    },
+    {
+      "name": "tom@gmail.com",
+      "password": "sha1$5ebb2bc9$1$d1e317fb4711f7b05a99779f0087ab832eda7dc9"
+    },
+    {
+      "name": "bob@gmail.com",
+      "password": "sha1$3d688967$1$d350f169e3780fc626e1a16764a099c83d42065f"
+    }
+  ]
+}

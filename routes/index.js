@@ -9,8 +9,8 @@ router.get('/', home.getIndex);
 router.post('/', home.sendMessage);
 
 router.get('/login', login.getLogin);
-router.post('/login', login.signUp);
+// router.post('/login', login.signUp);
 
-router.get('/admin', admin.getAdmin);
+router.get('/admin', admin.isAdmin, admin.getAdmin);
 
 module.exports = router;

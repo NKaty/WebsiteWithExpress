@@ -1,4 +1,5 @@
 config.json
+public/upload/
 
 node_modules
 npm-debug.log
