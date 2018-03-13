@@ -12,5 +12,74 @@
       "name": "bob@gmail.com",
       "password": "sha1$3d688967$1$d350f169e3780fc626e1a16764a099c83d42065f"
     }
+  ],
+  "products": [
+    {
+      "src": "/images/products/Work1.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work2.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work3.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work4.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work5.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work6.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work7.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work8.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    },
+    {
+      "src": "/images/products/Work9.jpg",
+      "name": "Вино вдохновение",
+      "price": 600
+    }
+  ],
+  "skills": [
+    {
+      "id": 0,
+      "number": 1,
+      "text": "Возраст начала занятий на скрипке"
+    },
+    {
+      "id": 1,
+      "number": 1,
+      "text": "Концертов отыграл"
+    },
+    {
+      "id": 2,
+      "number": 1,
+      "text": "Максимальное число городов в туре"
+    },
+    {
+      "id": 3,
+      "number": 0,
+      "text": "Лет на сцене в качестве скрипача"
+    }
   ]
 }

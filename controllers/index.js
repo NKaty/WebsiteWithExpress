@@ -1,8 +1,12 @@
 const nodemailer = require('nodemailer');
-const config = require('../config.json');
+const config = require('../config');
+const db = require('../db/db');
+const HttpError = require('../error/index');
 
 module.exports.getIndex = function (req, res) {
-  res.render('pages/index');
+  const products = db.get('products').value();
+  const skills = db.get('skills').value();
+  res.render('pages/index', { products: products, skills: skills });
 };
 
 module.exports.sendMessage = function (req, res, next) {
@@ -26,13 +30,14 @@ module.exports.sendMessage = function (req, res, next) {
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      return res.render('pages/index',
-        { msgemail: `При отправке письма произошла ошибка! ${error}`,
-          status: 'Error',
-          anchor: 'form-email',
-          fromName: req.body.name || '',
-          fromEmail: req.body.email || '',
-          messageContent: req.body.message || '' });
+      throw new HttpError('При отправке письма произошла ошибка!', 500);
+      // return res.render('pages/index',
+      //   { msgemail: `При отправке письма произошла ошибка! ${error}`,
+      //     status: 'Error',
+      //     anchor: 'form-email',
+      //     fromName: req.body.name || '',
+      //     fromEmail: req.body.email || '',
+      //     messageContent: req.body.message || '' });
     }
     res.render('pages/index',
       { msgemail: 'Письмо успешно отправлено!',
