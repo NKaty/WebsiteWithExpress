@@ -4,6 +4,11 @@ block variables
   - var title = 'Admin page'
 
 block content
+  script.
+    function getName (input) {
+      var span = document.getElementById('form-upload-span');
+      span.innerHTML = input.files[0].name;
+    };
   .wrapper
     header.admin-header
       .container.admin-header__container

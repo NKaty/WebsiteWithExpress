@@ -6,10 +6,11 @@ module.exports.getLogin = function (req, res) {
   res.render('pages/login');
 };
 
-module.exports.signUp = function (req, res) {
+module.exports.signUp = function (req, res, next) {
   req.session.regenerate((err) => {
     if (err) {
-      throw new HttpError('При входе на сайт произошля ошибка', 500);
+      console.error(err);
+      next(new HttpError('При входе на сайт произошля ошибка', 500));
       // return res.render('pages/login',
       //   {msglogin: `При входе на сайт произошля ошибка. ${err}`, status: 'Error'});
     }
@@ -43,7 +44,8 @@ module.exports.signUp = function (req, res) {
         res.render('pages/login',
           {msglogin: 'Вы успешно зарегистрировались на сайте!', status: 'Ok'});
       } catch (err) {
-        throw new HttpError('При регистрации произошля ошибка', 500);
+        console.error(err);
+        next(new HttpError('При регистрации произошля ошибка', 500));
         // res.render('pages/login',
         //   {msglogin: `При регистрации произошля ошибка. ${err}`, status: 'Error'});
       }

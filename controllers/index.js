@@ -10,6 +10,8 @@ module.exports.getIndex = function (req, res) {
 };
 
 module.exports.sendMessage = function (req, res, next) {
+  const products = db.get('products').value();
+  const skills = db.get('skills').value();
   if (!req.body.name || !req.body.email) {
     return res.render('pages/index',
       { msgemail: 'Поля имя и email должны быть заполнены!',
@@ -17,7 +19,9 @@ module.exports.sendMessage = function (req, res, next) {
         anchor: 'form-email',
         fromName: req.body.name || '',
         fromEmail: req.body.email || '',
-        messageContent: req.body.message || '' });
+        messageContent: req.body.message || '',
+        products: products,
+        skills: skills });
   }
 
   const transporter = nodemailer.createTransport(config.mail.smtp);
@@ -28,20 +32,25 @@ module.exports.sendMessage = function (req, res, next) {
     text: req.body.message.trim().slice(0, 500) + `\n Отправлено с: <${req.body.email}>`
   };
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      throw new HttpError('При отправке письма произошла ошибка!', 500);
+  transporter.sendMail(mailOptions, function (err, info) {
+    if (err) {
+      console.error(err);
+      next(new HttpError('При отправке письма произошла ошибка!', 500));
       // return res.render('pages/index',
       //   { msgemail: `При отправке письма произошла ошибка! ${error}`,
       //     status: 'Error',
       //     anchor: 'form-email',
       //     fromName: req.body.name || '',
       //     fromEmail: req.body.email || '',
-      //     messageContent: req.body.message || '' });
+      //     messageContent: req.body.message || '',
+      //     products: products,
+      //     skills: skills });
     }
     res.render('pages/index',
       { msgemail: 'Письмо успешно отправлено!',
         status: 'Ok',
-        anchor: 'form-email' });
+        anchor: 'form-email',
+        products: products,
+        skills: skills });
   });
 };

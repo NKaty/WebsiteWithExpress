@@ -39,7 +39,8 @@ module.exports.updateSkills = function (req, res, next) {
         .write();
     });
   } catch (err) {
-    throw new HttpError('Произошла ошибка при записи в базу данных!', 500);
+    console.error(err);
+    next(new HttpError('Произошла ошибка при записи в базу данных!', 500));
   }
   res.render('pages/admin', { msgskill: 'Счетчики обновлены!', status: 'Ok' });
 };
@@ -53,7 +54,8 @@ module.exports.uploadProduct = function (req, res, next) {
   form.uploadDir = upload;
   form.parse(req, function (err, fields, files) {
     if (err) {
-      throw new HttpError('При чтении данных из формы произошла ошибка!', 500);
+      console.error(err);
+      next(new HttpError('При чтении данных из формы произошла ошибка!', 500));
     }
     if (files.photo.name === '') {
       return res.render('pages/admin',
@@ -93,7 +95,8 @@ module.exports.uploadProduct = function (req, res, next) {
     fs.rename(files.photo.path, fileName, function (err) {
       if (err) {
         fs.unlink(fileName);
-        throw new HttpError('Произошла ошибка при переименовании фотографии продукта!', 500);
+        console.error(err);
+        next(new HttpError('Произошла ошибка при переименовании фотографии продукта!', 500));
       }
       const dir = path.join('/images', 'products', files.photo.name);
       try {
@@ -101,7 +104,8 @@ module.exports.uploadProduct = function (req, res, next) {
           .push({ src: dir, name: fields.name, price: fields.price })
           .write();
       } catch (err) {
-        throw new HttpError('Произошла ошибка при записи в базу данных!', 500);
+        console.error(err);
+        next(new HttpError('Произошла ошибка при записи в базу данных!', 500));
       }
       res.render('pages/admin', { msgfile: 'Товар добавлен в каталог!', status: 'Ok' });
     });

@@ -6,7 +6,7 @@ const config = {
       port: 465,
       secure: true,
       auth: {
-        user: '',
+        user: 'webinar.loftschool@gmail.com',
         pass: ''
       }
     }

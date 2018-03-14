@@ -1,6 +1,6 @@
 extends ../_template
 
 block content
-  h1= message
+  h1= error.message
   h2= `Status: ${error.status}`
   pre #{error.stack}
