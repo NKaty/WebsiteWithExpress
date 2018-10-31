@@ -2,11 +2,15 @@
   "users": [
     {
       "name": "admin@admin",
-      "password": "sha1$8f53e4db$1$55f19543380d2775c86c51f6cd1a7e98e3cbc31d" //111
+      "password": "sha1$8f53e4db$1$55f19543380d2775c86c51f6cd1a7e98e3cbc31d"
     },
     {
       "name": "tom@gmail.com",
-      "password": "sha1$5ebb2bc9$1$d1e317fb4711f7b05a99779f0087ab832eda7dc9" //222
+      "password": "sha1$5ebb2bc9$1$d1e317fb4711f7b05a99779f0087ab832eda7dc9"
+    },
+    {
+      "name": "1111@mail.com",
+      "password": "sha1$3f11e9e7$1$1ad486af62c618e596b4698b8fe0abc738bf4a5d"
     }
   ],
   "products": [
@@ -59,17 +63,17 @@
   "skills": [
     {
       "id": 0,
-      "number": 12,
+      "number": 6,
       "text": "Возраст начала занятий на скрипке"
     },
     {
       "id": 1,
-      "number": 76,
+      "number": 52,
       "text": "Концертов отыграл"
     },
     {
       "id": 2,
-      "number": 30,
+      "number": 36,
       "text": "Максимальное число городов в туре"
     },
     {

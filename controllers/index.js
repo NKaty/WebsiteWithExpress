@@ -36,15 +36,6 @@ module.exports.sendMessage = function (req, res, next) {
     if (err) {
       console.error(err);
       next(new HttpError('При отправке письма произошла ошибка!', 500));
-      // return res.render('pages/index',
-      //   { msgemail: `При отправке письма произошла ошибка! ${error}`,
-      //     status: 'Error',
-      //     anchor: 'form-email',
-      //     fromName: req.body.name || '',
-      //     fromEmail: req.body.email || '',
-      //     messageContent: req.body.message || '',
-      //     products: products,
-      //     skills: skills });
     }
     res.render('pages/index',
       { msgemail: 'Письмо успешно отправлено!',

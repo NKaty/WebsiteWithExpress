@@ -11,8 +11,6 @@ module.exports.signUp = function (req, res, next) {
     if (err) {
       console.error(err);
       next(new HttpError('При входе на сайт произошля ошибка', 500));
-      // return res.render('pages/login',
-      //   {msglogin: `При входе на сайт произошля ошибка. ${err}`, status: 'Error'});
     }
     const username = req.body.email;
     const password = req.body.password;
@@ -46,8 +44,6 @@ module.exports.signUp = function (req, res, next) {
       } catch (err) {
         console.error(err);
         next(new HttpError('При регистрации произошля ошибка', 500));
-        // res.render('pages/login',
-        //   {msglogin: `При регистрации произошля ошибка. ${err}`, status: 'Error'});
       }
     }
   });
